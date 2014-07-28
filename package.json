@@ -2,12 +2,15 @@
   "name": "node-js-sample",
   "version": "0.1.0",
   "description": "A sample Node.js app using Express 4",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "main": "grunt serve",
   "dependencies": {
     "express": "^4.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.4.17"
   },
   "engines": {
     "node": "0.10.x"
