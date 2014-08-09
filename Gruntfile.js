@@ -40,7 +40,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('compile', ['jshint']);
 
-    grunt.registerTask('serve', ['compile', 'express:dev', 'watch']);
+    grunt.registerTask('serve', [
+        'compile', 
+        'express:dev', 
+        'watch'
+    ]);
 
     grunt.loadNpmTasks('grunt-contrib-watch');
 
