@@ -6,6 +6,8 @@ router.get('/', function(req, res) {
 });
 
 router.get('/about', function(req, res) {
+    res.cookie('name', 'hell');
+
     res.render('about');
 });
 

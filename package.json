@@ -4,12 +4,15 @@
   "description": "A sample Node.js app using Express 4",
   "main": "grunt serve",
   "dependencies": {
+    "cookie": "^0.1.2",
+    "cookies": "^0.5.0",
     "express": "^4.0.0",
+    "formidable": "^1.0.15",
     "jade": "^1.5.0",
     "less": "^1.7.4",
     "mongoose": "^3.8.14",
-    "passport": "^0.2.0",
-    "passport-local": "^1.0.0"
+    "token": "0.0.0",
+    "uid-safe": "^1.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
