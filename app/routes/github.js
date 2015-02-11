@@ -34,7 +34,14 @@ router.post('', function(req, res) {
     var repo = req.body['repository']['url'];
 
 
-    res.send(repo);
+    var git = new Git({'git-dir': req.app.get('posts')});
+    git.exec('pull', [repo, ref], function(err, msg) {
+        if(err) {
+            res.status(500).send('Unable to Pull Repo');
+        }
+
+        res.status(200).send("Pulled Changes");
+    });
 
 
 });
