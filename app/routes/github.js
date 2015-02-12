@@ -35,13 +35,28 @@ router.post('', function(req, res) {
 
 
     var git = new Git({'git-dir': req.app.get('posts')});
-    git.exec('pull', [repo, ref], function(err, msg) {
+    git.exec('rev-parse', ['HEAD'], function(err, msg) {
         if(err) {
-            res.status(500).send('Unable to Pull Repo');
+            res.status(500).send('Unable to get current HEAD');
         }
 
-        res.status(200).send("Pulled Changes");
+        console.log(msg);
+        var base = msg;
+
+        git.exec('pull', [repo, ref], function(err, msg) {
+            if(err) {
+                res.status(500).send('Unable to Pull Repo');
+            }
+
+            res.status(200).send("Pulled Changes");
+
+            var head = req.body['after']; 
+
+            updateCacheFromCommits(req.app.get('cache'), base, head);
+        });
     });
-
-
 });
+
+var updateCacheFromCommits = function(cache, base, head) { 
+   //TODO 
+}
